@@ -1,0 +1,17 @@
+IMPORT fltk
+
+VAR w: fltk.Window := NIL
+VAR label: fltk.Box := NIL
+VAR button: fltk.Button := NIL
+
+FUNCTION changeMessage(self: fltk.Button)
+    label.setLabel("Goodbye world!")
+END FUNCTION
+
+w := fltk.makeWindow(340, 180)
+label := fltk.makeBox(20, 20, 300, 40, "Hello, World!")
+button := fltk.makeButton(20, 60, 300, 20, "Press me")
+w.end()
+button.setCallback(changeMessage)
+w.show()
+fltk.run()

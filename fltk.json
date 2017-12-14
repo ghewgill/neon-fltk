@@ -1,0 +1,2908 @@
+{
+
+    "NOTE": [
+        "This file describes the FLTK API, in a way that can be read by",
+        "mkapi.py which generates code in fltk.neon.inc and fltk.cpp.inc.",
+        "It is called by the SConstruct file in this directory."
+    ],
+
+    "Adjuster": {
+        "native": "Fl_Adjuster",
+        "super": "Valuator",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ],
+        "methods": {
+            "getSoft": {
+                "native": "soft",
+                "return": "Boolean"
+            },
+            "setSoft": {
+                "native": "soft",
+                "params": [
+                    ["s", "Boolean"]
+                ]
+            }
+        }
+    },
+
+    "Bitmap": {
+        "native": "Fl_Bitmap",
+        "super": "Image",
+        "constructor": [
+            ["bits", "Bytes"],
+            ["w", "Number"],
+            ["h", "Number"]
+        ]
+    },
+
+    "TODO BmpImage": {
+        "native": "Fl_BMP_Image",
+        "super": "RgbImage",
+        "constructor": [
+            ["filename", "String"]
+        ]
+    },
+
+    "Box": {
+        "native": "Fl_Box",
+        "super": "Widget",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ]
+    },
+
+    "Browser": {
+        "native": "Fl_Browser",
+        "super": "BrowserBase",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ],
+        "methods": {
+            "TODO add": {
+                "params": [
+                    ["newtext", "String"],
+                    ["d", "Number"]
+                ]
+            },
+            "bottomLine": {
+                "native": "bottomline",
+                "params": [
+                    ["line", "Number"]
+                ]
+            },
+            "clear": {},
+            "getColumnChar": {
+                "native": "column_char",
+                "return": "Char"
+            },
+            "TODO getColumnWidths": {
+                "native": "column_widths",
+                "return": "Array<Number>"
+            },
+            "getData": {
+                "native": "data",
+                "params": [
+                    ["line", "Number"]
+                ]
+            },
+            "getFormatChar": {
+                "native": "format_char",
+                "return": "Char"
+            },
+            "getIcon": {
+                "native": "icon",
+                "params": [
+                    ["line", "Number"]
+                ]
+            },
+            "getSize": {
+                "native": "size",
+                "return": "Number"
+            },
+            "getText": {
+                "native": "text",
+                "return": "String",
+                "params": [
+                    ["line", "Number"]
+                ]
+            },
+            "getTextSize": {
+                "native": "textsize",
+                "return": "Fontsize"
+            },
+            "getValue": {
+                "native": "value",
+                "return": "Number"
+            },
+            "hideLine": {
+                "native": "hide",
+                "params": [
+                    ["line", "Number"]
+                ]
+            },
+            "TODO insert": {
+                "params": [
+                    ["line", "Number"],
+                    ["newtext", "String"],
+                    ["d", "Number"]
+                ]
+            },
+            "isDisplayed": {
+                "native": "displayed",
+                "return": "Boolean",
+                "params": [
+                    ["line", "Number"]
+                ]
+            },
+            "isSelected": {
+                "native": "selected",
+                "return": "Boolean",
+                "params": [
+                    ["line", "Number"]
+                ]
+            },
+            "isLineVisible": {
+                "native": "visible",
+                "return": "Boolean",
+                "params": [
+                    ["line", "Number"]
+                ]
+            },
+            "load": {
+                "params": [
+                    ["filename", "String"]
+                ]
+            },
+            "makeVisible": {
+                "native": "make_visible",
+                "params": [
+                    ["line", "Number"]
+                ]
+            },
+            "middleLine": {
+                "native": "middleline",
+                "params": [
+                    ["line", "Number"]
+                ]
+            },
+            "move": {
+                "params": [
+                    ["to", "Number"],
+                    ["from", "Number"]
+                ]
+            },
+            "remove": {
+                "params": [
+                    ["line", "Number"]
+                ]
+            },
+            "removeIcon": {
+                "native": "remove_icon",
+                "params": [
+                    ["line", "Number"]
+                ]
+            },
+            "select": {
+                "return": "Boolean",
+                "params": [
+                    ["line", "Number"],
+                    ["val", "Boolean"]
+                ]
+            },
+            "setColumnChar": {
+                "native": "column_char",
+                "params": [
+                    ["c", "Char"]
+                ]
+            },
+            "TODO setColumnWidths": {
+                "native": "column_widths",
+                "params": [
+                    ["arr", "Array<Number>"]
+                ]
+            },
+            "setData": {
+                "native": "data",
+                "params": [
+                    ["d", "Number"]
+                ]
+            },
+            "setFormatChar": {
+                "native": "format_char",
+                "params": [
+                    ["c", "Char"]
+                ]
+            },
+            "setIcon": {
+                "native": "icon",
+                "params": [
+                    ["line", "Number"],
+                    ["icon", "Image"]
+                ]
+            },
+            "setText": {
+                "native": "text",
+                "params": [
+                    ["line", "Number"],
+                    ["newtext", "String"]
+                ]
+            },
+            "setTextSize": {
+                "native": "textsize",
+                "params": [
+                    ["size", "Fontsize"]
+                ]
+            },
+            "setValue": {
+                "native": "value",
+                "params": [
+                    ["line", "Number"]
+                ]
+            },
+            "showLine": {
+                "native": "show",
+                "params": [
+                    ["line", "Number"]
+                ]
+            },
+            "swap": {
+                "params": [
+                    ["a", "Number"],
+                    ["b", "Number"]
+                ]
+            },
+            "topLine": {
+                "native": "topline",
+                "params": [
+                    ["line", "Number"]
+                ]
+            }
+        }
+    },
+
+    "BrowserBase": {
+        "native": "Fl_Browser_",
+        "super": "Group",
+        "methods": {
+            "TODO": {}
+        }
+    },
+
+    "Button": {
+        "native": "Fl_Button",
+        "super": "Widget",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ],
+        "methods": {
+            "clear": {},
+            "getDownBox": {
+                "native": "down_box",
+                "return": "Boxtype"
+            },
+            "getShortcut": {
+                "native": "shortcut",
+                "return": "Number"
+            },
+            "getValue": {
+                "native": "value",
+                "return": "Boolean"
+            },
+            "set": {},
+            "setDownBox": {
+                "native": "down_box",
+                "params": [
+                    ["b", "Boxtype"]
+                ]
+            },
+            "setOnly": {
+                "native": "setonly"
+            },
+            "setShortcut": {
+                "native": "shortcut",
+                "params": [
+                    ["s", "Number"]
+                ]
+            },
+            "setValue": {
+                "native": "value",
+                "params": [
+                    ["v", "Boolean"]
+                ]
+            }
+        }
+    },
+
+    "Chart": {
+        "native": "Fl_Chart",
+        "super": "Widget",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ],
+        "methods": {
+            "TODO": {}
+        }
+    },
+
+    "CheckBrowser": {
+        "native": "Fl_Check_Browser",
+        "super": "BrowserBase",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ],
+        "methods": {
+            "add": {
+                "params": [
+                    ["s", "String"],
+                    ["b", "Boolean"]
+                ]
+            },
+            "checkAll": {
+                "native": "check_all"
+            },
+            "checkNone": {
+                "native": "check_none"
+            },
+            "clear": {},
+            "getCheckedCount": {
+                "native": "nchecked",
+                "return": "Number"
+            },
+            "getItemCount": {
+                "native": "nitems",
+                "return": "Number"
+            },
+            "getText": {
+                "native": "text",
+                "return": "String",
+                "params": [
+                    ["item", "Number"]
+                ]
+            },
+            "getValue": {
+                "native": "value",
+                "return": "Number"
+            },
+            "isChecked": {
+                "native": "checked",
+                "return": "Boolean",
+                "params": [
+                    ["item", "Number"]
+                ]
+            },
+            "remove": {
+                "params": [
+                    ["item", "Number"]
+                ]
+            },
+            "setChecked": {
+                "native": "checked",
+                "params": [
+                    ["item", "Number"],
+                    ["b", "Boolean"]
+                ]
+            }
+        }
+    },
+
+    "CheckButton": {
+        "native": "Fl_Check_Button",
+        "super": "LightButton",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ]
+    },
+
+    "Choice": {
+        "native": "Fl_Choice",
+        "super": "MenuBase",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ],
+        "methods": {
+            "getValue": {
+                "native": "value",
+                "return": "Number"
+            },
+            "setValue": {
+                "native": "value",
+                "params": [
+                    ["v", "Number"]
+                ]
+            }
+        }
+    },
+
+    "Clock": {
+        "native": "Fl_Clock",
+        "super": "ClockOutput",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ]
+    },
+
+    "ClockOutput": {
+        "native": "Fl_Clock_Output",
+        "super": "Widget",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ],
+        "methods": {
+            "getHour": {
+                "native": "hour",
+                "return": "Number"
+            },
+            "getMinute": {
+                "native": "minute",
+                "return": "Number"
+            },
+            "getSecond": {
+                "native": "second",
+                "return": "Number"
+            },
+            "getValue": {
+                "native": "value",
+                "return": "Number"
+            },
+            "setValueHMS": {
+                "native": "value",
+                "params": [
+                    ["h", "Number"],
+                    ["m", "Number"],
+                    ["s", "Number"]
+                ]
+            },
+            "setValue": {
+                "native": "value",
+                "params": [
+                    ["v", "Number"]
+                ]
+            }
+        }
+    },
+
+    "ColorChooser": {
+        "native": "Fl_Color_Chooser",
+        "super": "Group",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ],
+        "methods": {
+            "TODO": {}
+        }
+    },
+
+    "CopySurface": {
+        "native": "Fl_Copy_Surface",
+        "super": "SurfaceDevice",
+        "constructor": [
+            ["w", "Number"],
+            ["h", "Number"]
+        ],
+        "methods": {
+            "TODO draw": {},
+            "h": {
+                "return": "Number"
+            },
+            "setCurrent": {
+                "native": "set_current"
+            },
+            "w": {
+                "return": "Number"
+            }
+        }
+    },
+
+    "Counter": {
+        "native": "Fl_Counter",
+        "super": "Valuator",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ],
+        "methods": {
+            "getStep": {
+                "native": "step",
+                "return": "Number"
+            },
+            "getTextColor": {
+                "native": "textcolor",
+                "return": "Color"
+            },
+            "getTextFont": {
+                "native": "textfont",
+                "return": "Font"
+            },
+            "getTextSize": {
+                "native": "textsize",
+                "return": "Fontsize"
+            },
+            "setLargeStep": {
+                "native": "lstep",
+                "params": [
+                    ["a", "Number"]
+                ]
+            },
+            "setNormalLargeStep": {
+                "native": "step",
+                "params": [
+                    ["a", "Number"],
+                    ["b", "Number"]
+                ]
+            },
+            "setTextColor": {
+                "native": "textcolor",
+                "params": [
+                    ["c", "Color"]
+                ]
+            },
+            "setTextFont": {
+                "native": "textfont",
+                "params": [
+                    ["f", "Font"]
+                ]
+            },
+            "setTextSize": {
+                "native": "textsize",
+                "params": [
+                    ["s", "Fontsize"]
+                ]
+            }
+        }
+    },
+
+    "Device": {
+        "native": "Fl_Device"
+    },
+
+    "Dial": {
+        "native": "Fl_Dial",
+        "super": "Valuator",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ],
+        "methods": {
+            "getAngle1": {
+                "native": "angle1",
+                "return": "Number"
+            },
+            "getAngle2": {
+                "native": "angle2",
+                "return": "Number"
+            },
+            "setAngle1": {
+                "native": "angle1",
+                "params": [
+                    ["a", "Number"]
+                ]
+            },
+            "setAngle2": {
+                "native": "angle2",
+                "params": [
+                    ["a", "Number"]
+                ]
+            },
+            "setAngles": {
+                "native": "angles",
+                "params": [
+                    ["a", "Number"],
+                    ["b", "Number"]
+                ]
+            }
+        }
+    },
+
+    "DisplayDevice": {
+        "native": "Fl_Display_Device",
+        "super": "SurfaceDevice",
+        "methods": {
+            "TODO": {}
+        }
+    },
+
+    "DoubleWindow": {
+        "native": "Fl_Double_Window",
+        "super": "Window",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ],
+        "methods": {
+            "flush": {}
+        }
+    },
+
+    "FileBrowser": {
+        "native": "Fl_File_Browser",
+        "super": "Browser",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ],
+        "methods": {
+            "TODO": {}
+        }
+    },
+
+    "FileChooser": {
+        "native": "Fl_File_Chooser",
+        "methods": {
+            "TODO": {}
+        }
+    },
+
+    "FileIcon": {
+        "native": "Fl_File_Icon",
+        "methods": {
+            "TODO": {}
+        }
+    },
+
+    "FileInput": {
+        "native": "Fl_File_Input",
+        "super": "Input",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ],
+        "methods": {
+            "getDownBox": {
+                "native": "down_box",
+                "return": "Boxtype"
+            },
+            "getErrorColor": {
+                "native": "errorcolor",
+                "return": "Color"
+            },
+            "setDownBox": {
+                "native": "down_box",
+                "params": [
+                    ["b", "Boxtype"]
+                ]
+            },
+            "setErrorColor": {
+                "native": "errorcolor",
+                "params": [
+                    ["c", "Color"]
+                ]
+            }
+        }
+    },
+
+    "FillDial": {
+        "native": "Fl_Fill_Dial",
+        "super": "Dial",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ]
+    },
+
+    "FillSlider": {
+        "native": "Fl_Fill_Slider",
+        "super": "Slider",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ]
+    },
+
+    "FloatInput": {
+        "native": "Fl_Float_Input",
+        "super": "Input",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ]
+    },
+
+    "TODO FLTKFileChooser": {
+        "native": "Fl_FLTK_File_Chooser"
+    },
+
+    "TODO GifImage": {
+        "native": "Fl_GIF_Image",
+        "super": "Pixmap",
+        "constructor": [
+            ["filename", "String"]
+        ]
+    },
+
+    "GlWindow": {
+        "native": "Fl_Gl_Window",
+        "super": "Window",
+        "methods": {
+            "TODO": {}
+        }
+    },
+
+    "TODO GlutWindow": {
+        "native": "Fl_Glut_Window",
+        "super": "GlWindow"
+    },
+
+    "GraphicsDriver": {
+        "native": "Fl_Graphics_Driver",
+        "super": "Device",
+        "methods": {
+            "TODO": {}
+        }
+    },
+
+    "Group": {
+        "native": "Fl_Group",
+        "super": "Widget",
+        "methods": {
+            "begin": {},
+            "end": {},
+            "TODO": {}
+        }
+    },
+
+    "TODO HelpDialog": {
+        "native": "Fl_Help_Dialog"
+    },
+
+    "TODO HelpView": {
+        "native": "Fl_Help_View",
+        "super": "Group"
+    },
+
+    "HoldBrowser": {
+        "native": "Fl_Hold_Browser",
+        "super": "Browser",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ]
+    },
+
+    "HorizontalFillSlider": {
+        "native": "Fl_Hor_Fill_Slider",
+        "super": "Slider",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ]
+    },
+
+    "HorizontalNiceSlider": {
+        "native": "Fl_Hor_Nice_Slider",
+        "super": "Slider",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ]
+    },
+
+    "HorizontalSlider": {
+        "native": "Fl_Hor_Slider",
+        "super": "Slider",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ]
+    },
+
+    "HorizontalValueSlider": {
+        "native": "Fl_Hor_Value_Slider",
+        "super": "ValueSlider",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ]
+    },
+
+    "Image": {
+        "native": "Fl_Image",
+        "constructor": [
+            ["w", "Number"],
+            ["h", "Number"],
+            ["d", "Number"]
+        ],
+        "methods": {
+            "colorAverage": {
+                "native": "color_average",
+                "params": [
+                    ["c", "Color"],
+                    ["i", "Number"]
+                ]
+            },
+            "copy": {
+                "return": "Image"
+            },
+            "copyResize": {
+                "native": "copy",
+                "return": "Image",
+                "params": [
+                    ["w", "Number"],
+                    ["h", "Number"]
+                ]
+            },
+            "d": {
+                "return": "Number"
+            },
+            "TODO data": {},
+            "desaturate": {},
+            "draw": {
+                "params": [
+                    ["x", "Number"],
+                    ["y", "Number"]
+                ]
+            },
+            "drawClip": {
+                "native": "draw",
+                "params": [
+                    ["x", "Number"],
+                    ["y", "Number"],
+                    ["w", "Number"],
+                    ["h", "Number"],
+                    ["cx", "Number"],
+                    ["cy", "Number"]
+                ]
+            },
+            "getCount": {
+                "native": "count",
+                "return": "Number"
+            },
+            "getLineDataSize": {
+                "native": "ld",
+                "return": "Number"
+            },
+            "h": {
+                "return": "Number"
+            },
+            "inactive": {},
+            "isFail": {
+                "native": "fail",
+                "return": "Boolean"
+            },
+            "uncache": {},
+            "w": {
+                "return": "Number"
+            }
+        }
+    },
+
+    "ImageSurface": {
+        "native": "Fl_Image_Surface",
+        "super": "SurfaceDevice",
+        "constructor": [
+            ["w", "Number"],
+            ["h", "Number"],
+            ["highres", "Boolean"]
+        ],
+        "methods": {
+            "draw": {
+                "params": [
+                    ["w", "Widget"],
+                    ["delta_x", "Number"],
+                    ["delta_y", "Number"]
+                ]
+            },
+            "drawDecoratedWindow": {
+                "native": "draw_decorated_window",
+                "params": [
+                    ["win", "Window"],
+                    ["delta_x", "Number"],
+                    ["delta_y", "Number"]
+                ]
+            },
+            "getHighresImage": {
+                "native": "highres_image",
+                "return": "SharedImage"
+            },
+            "getImage": {
+                "native": "image",
+                "return": "RgbImage"
+            },
+            "setCurrent": {
+                "native": "set_current"
+            }
+        }
+    },
+
+    "Input": {
+        "native": "Fl_Input",
+        "super": "Widget",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ],
+        "methods": {
+            "copy": {
+                "return": "Boolean",
+                "params": [
+                    ["clipboard", "Number"]
+                ]
+            },
+            "copyCuts": {
+                "native": "copy_cuts",
+                "return": "Boolean"
+            },
+            "cut": {
+                "return": "Boolean"
+            },
+            "cutBytes": {
+                "native": "cut",
+                "return": "Boolean",
+                "params": [
+                    ["n", "Number"]
+                ]
+            },
+            "cutRange": {
+                "native": "cut",
+                "return": "Boolean",
+                "params": [
+                    ["a", "Number"],
+                    ["b", "Number"]
+                ]
+            },
+            "TODO getChar": {
+                "native": "index",
+                "return": "Char",
+                "params": [
+                    ["i", "Number"]
+                ]
+            },
+            "getCursorColor": {
+                "native": "cursor_color",
+                "return": "Color"
+            },
+            "getMark": {
+                "native": "mark",
+                "return": "Number"
+            },
+            "getMaximumSize": {
+                "native": "maximum_size",
+                "return": "Number"
+            },
+            "getPosition": {
+                "native": "position",
+                "return": "Number"
+            },
+            "getReadOnly": {
+                "native": "readonly",
+                "return": "Boolean"
+            },
+            "getShortcut": {
+                "native": "shortcut",
+                "return": "Number"
+            },
+            "getSize": {
+                "native": "size",
+                "return": "Number"
+            },
+            "getTabNavigation": {
+                "native": "tab_nav",
+                "return": "Boolean"
+            },
+            "getTextColor": {
+                "native": "textcolor",
+                "return": "Color"
+            },
+            "getTextFont": {
+                "native": "textfont",
+                "return": "Font"
+            },
+            "getTextSize": {
+                "native": "textsize",
+                "return": "Fontsize"
+            },
+            "getValue": {
+                "native": "value",
+                "return": "String"
+            },
+            "getWrap": {
+                "native": "wrap",
+                "return": "Boolean"
+            },
+            "insert": {
+                "return": "Boolean",
+                "params": [
+                    ["t", "String"]
+                ]
+            },
+            "replace": {
+                "return": "Boolean",
+                "params": [
+                    ["b", "Number"],
+                    ["e", "Number"],
+                    ["text", "String"]
+                ]
+            },
+            "setCursorColor": {
+                "native": "cursor_color",
+                "params": [
+                    ["n", "Color"]
+                ]
+            },
+            "setMark": {
+                "native": "mark",
+                "return": "Boolean",
+                "params": [
+                    ["m", "Number"]
+                ]
+            },
+            "setMaximumSize": {
+                "native": "maximum_size",
+                "params": [
+                    ["m", "Number"]
+                ]
+            },
+            "setInputPosition": {
+                "native": "position",
+                "return": "Boolean",
+                "params": [
+                    ["p", "Number"]
+                ]
+            },
+            "setInputPositionAndMark": {
+                "native": "position",
+                "return": "Boolean",
+                "params": [
+                    ["p", "Number"],
+                    ["m", "Number"]
+                ]
+            },
+            "setReadOnly": {
+                "native": "readonly",
+                "params": [
+                    ["b", "Boolean"]
+                ]
+            },
+            "setShortcut": {
+                "native": "shortcut",
+                "params": [
+                    ["s", "Number"]
+                ]
+            },
+            "setTabNavigation": {
+                "native": "tab_nav",
+                "params": [
+                    ["val", "Boolean"]
+                ]
+            },
+            "setTextColor": {
+                "native": "textcolor",
+                "params": [
+                    ["c", "Color"]
+                ]
+            },
+            "setTextFont": {
+                "native": "textfont",
+                "params": [
+                    ["f", "Font"]
+                ]
+            },
+            "setTextSize": {
+                "native": "textsize",
+                "params": [
+                    ["s", "Fontsize"]
+                ]
+            },
+            "setValue": {
+                "native": "value",
+                "params": [
+                    ["text", "String"]
+                ]
+            },
+            "setWrap": {
+                "native": "wrap",
+                "params": [
+                    ["b", "Boolean"]
+                ]
+            },
+            "undo": {}
+        }
+    },
+
+    "InputChoice": {
+        "native": "Fl_Input_Choice",
+        "super": "Group",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ],
+        "methods": {
+            "add": {
+                "params": [
+                    ["s", "String"]
+                ]
+            },
+            "clear": {},
+            "getDownBox": {
+                "native": "down_box",
+                "return": "Boxtype"
+            },
+            "getInput": {
+                "native": "input",
+                "return": "Input"
+            },
+            "getMenuButton": {
+                "native": "menubutton",
+                "return": "MenuButton"
+            },
+            "TODO getMenuItems": {
+                "native": "menu",
+                "return": "Menu"
+            },
+            "getTextColor": {
+                "native": "textcolor",
+                "return": "Color"
+            },
+            "getTextFont": {
+                "native": "textfont",
+                "return": "Font"
+            },
+            "getTextSize": {
+                "native": "textsize",
+                "return": "Fontsize"
+            },
+            "getValue": {
+                "native": "value",
+                "return": "String"
+            },
+            "setDownBox": {
+                "native": "down_box",
+                "params": [
+                    ["b", "Boxtype"]
+                ]
+            },
+            "TODO setMenuItems": {
+                "native": "menu",
+                "params": [
+                    ["m", "MenuItem"]
+                ]
+            },
+            "setTextColor": {
+                "native": "textcolor",
+                "params": [
+                    ["c", "Color"]
+                ]
+            },
+            "setTextFont": {
+                "native": "textfont",
+                "params": [
+                    ["f", "Font"]
+                ]
+            },
+            "setTextSize": {
+                "native": "textsize",
+                "params": [
+                    ["s", "Fontsize"]
+                ]
+            },
+            "setValue": {
+                "native": "value",
+                "params": [
+                    ["text", "String"]
+                ]
+            }
+        }
+    },
+
+    "IntInput": {
+        "native": "Fl_Int_Input",
+        "super": "Input",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ]
+    },
+
+    "JpegImage": {
+        "native": "Fl_JPEG_Image",
+        "super": "RgbImage",
+        "TODO constructor": [
+            ["filename", "String"]
+        ],
+        "TODO": "constructor from data"
+    },
+
+    "LightButton": {
+        "native": "Fl_Light_Button",
+        "super": "Button",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ]
+    },
+
+    "LineDial": {
+        "native": "Fl_Line_Dial",
+        "super": "Dial",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ]
+    },
+
+    "MenuBase": {
+        "native": "Fl_Menu_",
+        "super": "Widget",
+        "methods": {
+            "TODO": {}
+        }
+    },
+
+    "MenuBar": {
+        "native": "Fl_Menu_Bar",
+        "super": "MenuBase",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ]
+    },
+
+    "MenuButton": {
+        "native": "Fl_Menu_Button",
+        "super": "MenuBase",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ],
+        "methods": {
+            "TODO popup": {
+                "return": "MenuItem"
+            }
+        }
+    },
+
+    "MenuWindow": {
+        "native": "Fl_Menu_Window",
+        "super": "SingleWindow",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ],
+        "methods": {
+            "clearOverlay": {
+                "native": "clear_overlay"
+            },
+            "erase": {},
+            "flush": {},
+            "getOverlay": {
+                "native": "overlay",
+                "return": "Boolean"
+            },
+            "setOverlay": {
+                "native": "set_overlay"
+            }
+        }
+    },
+
+    "MultiBrowser": {
+        "native": "Fl_Multi_Browser",
+        "super": "Browser",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ]
+    },
+
+    "MultilineInput": {
+        "native": "Fl_Multiline_Input",
+        "super": "Input",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ]
+    },
+
+    "MultilineOutput": {
+        "native": "Fl_Multiline_Output",
+        "super": "Output",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ]
+    },
+
+    "NativeFileChooser": {
+        "native": "Fl_Native_File_Chooser",
+        "methods": {
+            "TODO": {}
+        }
+    },
+
+    "NiceSlider": {
+        "native": "Fl_Nice_Slider",
+        "super": "Slider",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ]
+    },
+
+    "Output": {
+        "native": "Fl_Output",
+        "super": "Input",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ]
+    },
+
+    "OverlayWindow": {
+        "native": "Fl_Overlay_Window",
+        "super": "DoubleWindow",
+        "methods": {
+            "TODO": {}
+        }
+    },
+
+    "Pack": {
+        "native": "Fl_Pack",
+        "super": "Group",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ],
+        "methods": {
+            "getSpacing": {
+                "native": "spacing",
+                "return": "Number"
+            },
+            "TODO horizontal": {},
+            "setSpacing": {
+                "native": "spacing",
+                "params": [
+                    ["i", "Number"]
+                ]
+            }
+        }
+    },
+
+    "PagedDevice": {
+        "native": "Fl_Paged_Device",
+        "super": "SurfaceDevice",
+        "methods": {
+            "TODO": {}
+        }
+    },
+
+    "Pixmap": {
+        "native": "Fl_Pixmap",
+        "super": "Image",
+        "methods": {
+            "TODO": {}
+        }
+    },
+
+    "PngImage": {
+        "native": "Fl_PNG_Image",
+        "super": "RgbImage",
+        "TODO": "image library"
+    },
+
+    "PnmImage": {
+        "native": "Fl_PNM_Image",
+        "super": "RgbImage",
+        "TODO": "image library"
+    },
+
+    "Positioner": {
+        "native": "Fl_Positioner",
+        "super": "Widget",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ],
+        "methods": {
+            "getXMaximum": {
+                "native": "xmaximum",
+                "return": "Number"
+            },
+            "getXMinimum": {
+                "native": "xminimum",
+                "return": "Number"
+            },
+            "getXValue": {
+                "native": "xvalue",
+                "return": "Number"
+            },
+            "getYMaximum": {
+                "native": "ymaximum",
+                "return": "Number"
+            },
+            "getYMinimum": {
+                "native": "yminimum",
+                "return": "Number"
+            },
+            "getYValue": {
+                "native": "yvalue",
+                "return": "Number"
+            },
+            "setValue": {
+                "native": "value",
+                "params": [
+                    ["x", "Number"],
+                    ["y", "Number"]
+                ]
+            },
+            "setXBounds": {
+                "native": "xbounds",
+                "params": [
+                    ["low", "Number"],
+                    ["high", "Number"]
+                ]
+            },
+            "setYBounds": {
+                "native": "ybounds",
+                "params": [
+                    ["low", "Number"],
+                    ["high", "Number"]
+                ]
+            },
+            "setXMaximum": {
+                "native": "xmaximum",
+                "params": [
+                    ["a", "Number"]
+                ]
+            },
+            "setXMinimum": {
+                "native": "xminimum",
+                "params": [
+                    ["a", "Number"]
+                ]
+            },
+            "setXStep": {
+                "native": "xstep",
+                "params": [
+                    ["a", "Number"]
+                ]
+            },
+            "setXValue": {
+                "native": "xvalue",
+                "params": [
+                    ["x", "Number"]
+                ]
+            },
+            "setYBounds": {
+                "native": "ybounds",
+                "params": [
+                    ["low", "Number"],
+                    ["high", "Number"]
+                ]
+            },
+            "setYBounds": {
+                "native": "ybounds",
+                "params": [
+                    ["low", "Number"],
+                    ["high", "Number"]
+                ]
+            },
+            "setYMayimum": {
+                "native": "ymaximum",
+                "params": [
+                    ["a", "Number"]
+                ]
+            },
+            "setYMinimum": {
+                "native": "yminimum",
+                "params": [
+                    ["a", "Number"]
+                ]
+            },
+            "setYStep": {
+                "native": "ystep",
+                "params": [
+                    ["a", "Number"]
+                ]
+            },
+            "setYValue": {
+                "native": "yvalue",
+                "params": [
+                    ["y", "Number"]
+                ]
+            }
+        }
+    },
+
+    "PostScriptFileDevice": {
+        "native": "Fl_PostScript_File_Device",
+        "super": "PagedDevice",
+        "TODO": {}
+    },
+
+    "PostScriptGraphicsDriver": {
+        "native": "Fl_PostScript_Graphics_Driver",
+        "super": "GraphicsDriver",
+        "TODO": {}
+    },
+
+    "PostScriptPrinter": {
+        "native": "Fl_PostScript_Printer",
+        "super": "PostScriptFileDevice",
+        "TODO": {}
+    },
+
+    "Preferences": {
+        "native": "Fl_Preferences",
+        "TODO": {}
+    },
+
+    "Printer": {
+        "native": "Fl_Printer",
+        "super": "PagedDevice",
+        "TODO": {}
+    },
+
+    "Progress": {
+        "native": "Fl_Progress",
+        "super": "Widget",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ],
+        "methods": {
+            "getMaximum": {
+                "native": "maximum",
+                "return": "Number"
+            },
+            "getMinimum": {
+                "native": "minimum",
+                "return": "Number"
+            },
+            "getValue": {
+                "native": "value",
+                "return": "Number"
+            },
+            "setMaximum": {
+                "native": "maximum",
+                "params": [
+                    ["v", "Number"]
+                ]
+            },
+            "setMinimum": {
+                "native": "minimum",
+                "params": [
+                    ["v", "Number"]
+                ]
+            },
+            "setValue": {
+                "native": "value",
+                "params": [
+                    ["v", "Number"]
+                ]
+            }
+        }
+    },
+
+    "QuartzGraphicsDriver": {
+        "native": "Fl_Quartz_Graphics_Driver",
+        "super": "GraphicsDriver",
+        "TODO": {}
+    },
+
+    "RadioButton": {
+        "native": "Fl_Radio_Button",
+        "super": "Button",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ]
+    },
+
+    "RadioLightButton": {
+        "native": "Fl_Radio_Light_Button",
+        "super": "LightButton",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ]
+    },
+
+    "RadioRoundButton": {
+        "native": "Fl_Radio_Round_Button",
+        "super": "RoundButton",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ]
+    },
+
+    "RepeatButton": {
+        "native": "Fl_Repeat_Button",
+        "super": "Button",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ]
+    },
+
+    "ReturnButton": {
+        "native": "Fl_Return_Button",
+        "super": "Button",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ]
+    },
+
+    "RgbImage": {
+        "native": "Fl_RGB_Image",
+        "super": "Image",
+        "TODO": {}
+    },
+
+    "Roller": {
+        "native": "Fl_Roller",
+        "super": "Valuator",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ]
+    },
+
+    "RoundButton": {
+        "native": "Fl_Round_Button",
+        "super": "LightButton",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ]
+    },
+
+    "RoundClock": {
+        "native": "Fl_Round_Clock",
+        "super": "Clock",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ]
+    },
+
+    "Scroll": {
+        "native": "Fl_Scroll",
+        "super": "Group",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ],
+        "methods": {
+            "getScrollbarSize": {
+                "native": "scrollbar_size",
+                "return": "Number"
+            },
+            "getXPosition": {
+                "native": "xposition",
+                "return": "Number"
+            },
+            "getYPosition": {
+                "native": "yposition",
+                "return": "Number"
+            },
+            "scrollTo": {
+                "native": "scroll_to",
+                "params": [
+                    ["x", "Number"],
+                    ["y", "Number"]
+                ]
+            },
+            "setScrollbarSize": {
+                "native": "scrollbar_size",
+                "params": [
+                    ["newSize", "Number"]
+                ]
+            }
+        }
+    },
+
+    "Scrollbar": {
+        "native": "Fl_Scrollbar",
+        "super": "Slider",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ],
+        "methods": {
+            "getLineSize": {
+                "native": "linesize",
+                "return": "Number"
+            },
+            "setLineSize": {
+                "native": "linesize",
+                "params": [
+                    ["i", "Number"]
+                ]
+            },
+            "setValueAndRange": {
+                "native": "value",
+                "params": [
+                    ["pos", "Number"],
+                    ["windowSize", "Number"],
+                    ["first", "Number"],
+                    ["total", "Number"]
+                ]
+            }
+        }
+    },
+
+    "SecretInput": {
+        "native": "Fl_Secret_Input",
+        "super": "Input",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ]
+    },
+
+    "SelectBrowser": {
+        "native": "Fl_Select_Browser",
+        "super": "Browser",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ]
+    },
+
+    "SharedImage": {
+        "native": "Fl_Shared_Image",
+        "super": "Image",
+        "TODO": {}
+    },
+
+    "SimpleCounter": {
+        "native": "Fl_Simple_Counter",
+        "super": "Counter",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ]
+    },
+
+    "SingleWindow": {
+        "native": "Fl_Single_Window",
+        "super": "Window",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ],
+        "TODO": "constructor with just width, height",
+        "methods": {
+            "TODO makeCurrent": {
+                "native": "make_current"
+            }
+        }
+    },
+
+    "Slider": {
+        "native": "Fl_Slider",
+        "super": "Valuator",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ],
+        "methods": {
+            "getSlider": {
+                "native": "slider",
+                "return": "Boxtype"
+            },
+            "getSliderSize": {
+                "native": "slider_size",
+                "return": "Number"
+            },
+            "setScrollValue": {
+                "native": "scrollvalue",
+                "params": [
+                    ["pos", "Number"],
+                    ["size", "Number"],
+                    ["first", "Number"],
+                    ["total", "Number"]
+                ]
+            },
+            "setSlider": {
+                "native": "slider",
+                "params": [
+                    ["c", "Boxtype"]
+                ]
+            },
+            "setSliderSize": {
+                "native": "slider_size",
+                "params": [
+                    ["v", "Number"]
+                ]
+            }
+        }
+    },
+
+    "Spinner": {
+        "native": "Fl_Spinner",
+        "super": "Group",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ],
+        "methods": {
+            "getColor": {
+                "native": "color",
+                "return": "Color"
+            },
+            "getFormat": {
+                "native": "format",
+                "return": "String"
+            },
+            "getMaximum": {
+                "native": "maximum",
+                "return": "Number"
+            },
+            "getMinimum": {
+                "native": "minimum",
+                "return": "Number"
+            },
+            "getStep": {
+                "native": "step",
+                "return": "Number"
+            },
+            "getTextColor": {
+                "native": "textcolor",
+                "return": "Color"
+            },
+            "getTextFont": {
+                "native": "textfont",
+                "return": "Font"
+            },
+            "getTextSize": {
+                "native": "textsize",
+                "return": "Fontsize"
+            },
+            "getValue": {
+                "native": "value",
+                "return": "Number"
+            },
+            "setColor": {
+                "native": "color",
+                "params": [
+                    ["v", "Color"]
+                ]
+            },
+            "setFormat": {
+                "native": "format",
+                "params": [
+                    ["f", "String"]
+                ]
+            },
+            "setMaximum": {
+                "native": "maximum",
+                "params": [
+                    ["m", "Number"]
+                ]
+            },
+            "setMinimum": {
+                "native": "minimum",
+                "params": [
+                    ["m", "Number"]
+                ]
+            },
+            "setRange": {
+                "native": "range",
+                "params": [
+                    ["a", "Number"],
+                    ["b", "Number"]
+                ]
+            },
+            "setStep": {
+                "native": "step",
+                "params": [
+                    ["s", "Number"]
+                ]
+            },
+            "setTextColor": {
+                "native": "textcolor",
+                "params": [
+                    ["c", "Color"]
+                ]
+            },
+            "setTextFont": {
+                "native": "textfont",
+                "params": [
+                    ["f", "Font"]
+                ]
+            },
+            "setTextSize": {
+                "native": "textsize",
+                "params": [
+                    ["s", "Fontsize"]
+                ]
+            },
+            "TODO setType": {},
+            "setValue": {
+                "native": "value",
+                "params": [
+                    ["v", "Number"]
+                ]
+            }
+        }
+    },
+
+    "SurfaceDevice": {
+        "native": "Fl_Surface_Device",
+        "super": "Device",
+        "TODO": {}
+    },
+
+    "SystemMenuBar": {
+        "native": "Fl_Sys_Menu_Bar",
+        "super": "MenuBar",
+        "TODO": {}
+    },
+
+    "SystemPrinter": {
+        "native": "Fl_System_Printer",
+        "super": "PagedDevice",
+        "TODO": {}
+    },
+
+    "Table": {
+        "native": "Fl_Table",
+        "super": "Group",
+        "TODO": {}
+    },
+
+    "TableRow": {
+        "native": "Fl_Table_Row",
+        "super": "Table",
+        "TODO": {}
+    },
+
+    "Tabs": {
+        "native": "Fl_Tabs",
+        "super": "Group",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ],
+        "methods": {
+            "TODO getClientArea": {},
+            "getValue": {
+                "native": "value",
+                "return": "Widget"
+            },
+            "setValue": {
+                "native": "value",
+                "params": [
+                    ["w", "Widget"]
+                ]
+            },
+            "which": {
+                "return": "Widget",
+                "params": [
+                    ["x", "Number"],
+                    ["y", "Number"]
+                ]
+            }
+        }
+    },
+
+    "TextBuffer": {
+        "native": "Fl_Text_Buffer",
+        "constructor": {},
+        "methods": {
+            "callModifyCallbacks": {
+                "native": "call_modify_callbacks"
+            },
+            "insert": {
+                "params": [
+                    ["pos", "Number"],
+                    ["text", "String"]
+                ]
+            },
+            "insertFile": {
+                "native": "insertfile",
+                "return": "Number",
+                "params": [
+                    ["file", "String"],
+                    ["pos", "Number"]
+                ]
+            },
+            "length": {
+                "return": "Number"
+            },
+            "loadFile": {
+                "native": "loadfile",
+                "return": "Number",
+                "params": [
+                    ["file", "String"]
+                ]
+            },
+            "removeSelection": {
+                "native": "remove_selection"
+            },
+            "saveFile": {
+                "native": "savefile",
+                "return": "Number",
+                "params": [
+                    ["file", "String"]
+                ]
+            },
+            "select": {
+                "params": [
+                    ["start", "Number"],
+                    ["end", "Number"]
+                ]
+            },
+            "TODO more methods": {}
+        }
+    },
+
+    "TextDisplay": {
+        "native": "Fl_Text_Display",
+        "super": "Group",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ],
+        "methods": {
+            "TODO": {}
+        }
+    },
+
+    "TextEditor": {
+        "native": "Fl_Text_Editor",
+        "super": "TextDisplay",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ],
+        "methods": {
+            "copy": {
+                "native_call": "Fl_Text_Editor::kf_copy(0, self)"
+            },
+            "cut": {
+                "native_call": "Fl_Text_Editor::kf_cut(0, self)"
+            },
+            "getInsertPosition": {
+                "native": "insert_position",
+                "return": "Number"
+            },
+            "paste": {
+                "native_call": "Fl_Text_Editor::kf_paste(0, self)"
+            },
+            "setBuffer": {
+                "native": "buffer",
+                "params": [
+                    ["buffer", "TextBuffer"]
+                ]
+            },
+            "setInsertPosition": {
+                "native": "insert_position",
+                "params": [
+                    ["pos", "Number"]
+                ]
+            },
+            "setTextFont": {
+                "native": "textfont",
+                "params": [
+                    ["font", "Font"]
+                ]
+            },
+            "setTextSize": {
+                "native": "textsize",
+                "params": [
+                    ["size", "Number"]
+                ]
+            },
+            "showInsertPosition": {
+                "native": "show_insert_position"
+            },
+            "TODO": {}
+        }
+    },
+
+    "Tile": {
+        "native": "Fl_Tile",
+        "super": "Group",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ],
+        "methods": {
+            "TODO setPosition": {
+                "native": "position",
+                "params": [
+                    ["oldx", "Number"],
+                    ["oldy", "Number"],
+                    ["newx", "Number"],
+                    ["newy", "Number"]
+                ]
+            }
+        }
+    },
+
+    "TiledImage": {
+        "native": "Fl_Tiled_Image",
+        "super": "Image",
+        "TODO": {}
+    },
+
+    "TODO Timer": {
+        "native": "Fl_Timer",
+        "super": "Widget",
+        "constructor": [
+            ["type", "Number"],
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ],
+        "methods": {
+            "getDirection": {
+                "native": "direction",
+                "return": "Boolean"
+            },
+            "getValue": {
+                "native": "value",
+                "return": "Number"
+            },
+            "isSuspended": {
+                "native": "suspended",
+                "return": "Boolean"
+            },
+            "setDirection": {
+                "native": "direction",
+                "params": [
+                    ["d", "Boolean"]
+                ]
+            },
+            "setSuspended": {
+                "native": "suspended",
+                "params": [
+                    ["d", "Number"]
+                ]
+            },
+            "setValue": {
+                "native": "value",
+                "params": [
+                    ["v", "Number"]
+                ]
+            }
+        }
+    },
+
+    "ToggleButton": {
+        "native": "Fl_Toggle_Button",
+        "super": "Button",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ]
+    },
+
+    "Tooltip": {
+        "native": "Fl_Tooltip",
+        "TODO": {}
+    },
+
+    "Tree": {
+        "native": "Fl_Tree",
+        "super": "Group",
+        "TODO": {}
+    },
+
+    "Valuator": {
+        "native": "Fl_Valuator",
+        "super": "Widget",
+        "methods": {
+            "clamp": {
+                "return": "Number",
+                "params": [
+                    ["v", "Number"]
+                ]
+            },
+            "getMaximum": {
+                "native": "maximum",
+                "return": "Number"
+            },
+            "getMinimum": {
+                "native": "minimum",
+                "return": "Number"
+            },
+            "getValue": {
+                "native": "value",
+                "return": "Number"
+            },
+            "increment": {
+                "return": "Number",
+                "params": [
+                    ["v", "Number"],
+                    ["n", "Number"]
+                ]
+            },
+            "round": {
+                "return": "Number",
+                "params": [
+                    ["v", "Number"]
+                ]
+            },
+            "setBounds": {
+                "native": "bounds",
+                "params": [
+                    ["a", "Number"],
+                    ["b", "Number"]
+                ]
+            },
+            "setMaximum": {
+                "native": "maximum",
+                "params": [
+                    ["a", "Number"]
+                ]
+            },
+            "setMinimum": {
+                "native": "minimum",
+                "params": [
+                    ["a", "Number"]
+                ]
+            },
+            "setPrecision": {
+                "native": "precision",
+                "params": [
+                    ["digits", "Number"]
+                ]
+            },
+            "setRange": {
+                "native": "range",
+                "params": [
+                    ["a", "Number"],
+                    ["b", "Number"]
+                ]
+            },
+            "setStep": {
+                "native": "step",
+                "params": [
+                    ["s", "Number"]
+                ]
+            },
+            "setStepDenominator": {
+                "native": "step",
+                "params": [
+                    ["a", "Number"]
+                ]
+            },
+            "setStepRatio": {
+                "native": "step",
+                "params": [
+                    ["a", "Number"],
+                    ["b", "Number"]
+                ]
+            },
+            "setValue": {
+                "native": "value",
+                "params": [
+                    ["v", "Number"]
+                ]
+            }
+        }
+    },
+
+    "ValueInput": {
+        "native": "Fl_Value_Input",
+        "super": "Valuator",
+        "TODO": {}
+    },
+
+    "ValueOutput": {
+        "native": "Fl_Value_Output",
+        "super": "Valuator",
+        "TODO": {}
+    },
+
+    "ValueSlider": {
+        "native": "Fl_Value_Slider",
+        "super": "Slider",
+        "TODO": {}
+    },
+
+    "Widget": {
+        "native": "Fl_Widget",
+        "methods": {
+            "activate": {},
+            "asGlWindow": {
+                "native": "as_gl_window",
+                "return": "GlWindow"
+            },
+            "asGroup": {
+                "native": "as_group",
+                "return": "Group"
+            },
+            "asWindow": {
+                "native": "as_window",
+                "return": "Window"
+            },
+            "clearActive": {
+                "native": "clear_active"
+            },
+            "clearChanged": {
+                "native": "clear_changed"
+            },
+            "clearDamage": {
+                "native": "clear_damage"
+            },
+            "clearOutput": {
+                "native": "clear_output"
+            },
+            "clearVisible": {
+                "native": "clear_visible"
+            },
+            "clearVisibleFocus": {
+                "native": "clear_visible_focus"
+            },
+            "contains": {
+                "return": "Boolean",
+                "params": [
+                    ["w", "Widget"]
+                ]
+            },
+            "deactivate": {},
+            "doCallback": {
+                "native": "do_callback"
+            },
+            "doCallbackArg": {
+                "native": "do_callback",
+                "params": [
+                    ["o", "Widget"],
+                    ["arg", "Number"]
+                ]
+            },
+            "drawLabel": {
+                "native": "draw_label",
+                "params": [
+                    ["x", "Number"],
+                    ["y", "Number"],
+                    ["w", "Number"],
+                    ["h", "Number"],
+                    ["a", "Align"]
+                ]
+            },
+            "getAlign": {
+                "native": "align",
+                "return": "Number"
+            },
+            "getArgument": {
+                "native": "argument",
+                "return": "Number"
+            },
+            "getBox": {
+                "native": "box",
+                "return": "Boxtype"
+            },
+            "getCallback": {
+                "native": "callback",
+                "return": "Callback"
+            },
+            "getBackgroundColor": {
+                "native": "color",
+                "return": "Color"
+            },
+            "getDeimage": {
+                "native": "deimage",
+                "return": "Image"
+            },
+            "getImage": {
+                "native": "image",
+                "return": "Image"
+            },
+            "getLabel": {
+                "native": "label",
+                "return": "String"
+            },
+            "getLabelColor": {
+                "native": "labelcolor",
+                "return": "Color"
+            },
+            "getLabelFont": {
+                "native": "labelfont",
+                "return": "Font"
+            },
+            "getLabelSize": {
+                "native": "labelsize",
+                "return": "Fontsize"
+            },
+            "getLabelType": {
+                "native": "labeltype",
+                "return": "Labeltype"
+            },
+            "getParent": {
+                "native": "parent",
+                "return": "Group"
+            },
+            "getSelectionColor": {
+                "native": "selection_color",
+                "return": "Color"
+            },
+            "getTooltip": {
+                "native": "tooltip",
+                "return": "String"
+            },
+            "getTopWindow": {
+                "native": "top_window",
+                "return": "Window"
+            },
+            "getWhenFlags": {
+                "native": "when",
+                "return": "When"
+            },
+            "getWindow": {
+                "native": "window",
+                "return": "Window"
+            },
+            "h": {
+                "return": "Number"
+            },
+            "hide": {},
+            "isActive": {
+                "native": "active",
+                "return": "Boolean"
+            },
+            "isActiveParents": {
+                "native": "active_r",
+                "return": "Boolean"
+            },
+            "isChanged": {
+                "native": "changed",
+                "return": "Boolean"
+            },
+            "isDamage": {
+                "native": "damage",
+                "return": "Boolean"
+            },
+            "isInside": {
+                "native": "inside",
+                "return": "Boolean",
+                "params": [
+                    ["wgt", "Widget"]
+                ]
+            },
+            "isOutput": {
+                "native": "output",
+                "return": "Boolean"
+            },
+            "isUseAccentsMenu": {
+                "native": "use_accents_menu",
+                "return": "Boolean"
+            },
+            "isVisible": {
+                "native": "visible",
+                "return": "Boolean"
+            },
+            "isVisibleFocus": {
+                "native": "visible_focus",
+                "return": "Boolean"
+            },
+            "isVisibleParents": {
+                "native": "visible_r",
+                "return": "Boolean"
+            },
+            "redraw": {},
+            "redrawLabel": {
+                "native": "redraw_label"
+            },
+            "resize": {
+                "params": [
+                    ["x", "Number"],
+                    ["y", "Number"],
+                    ["w", "Number"],
+                    ["h", "Number"]
+                ]
+            },
+            "setActive": {
+                "native": "set_active"
+            },
+            "setAlign": {
+                "native": "align",
+                "params": [
+                    ["alignment", "Number"]
+                ]
+            },
+            "setArgument": {
+                "native": "argument",
+                "params": [
+                    ["v", "Number"]
+                ]
+            },
+            "setBox": {
+                "native": "box",
+                "params": [
+                    ["new_box", "Boxtype"]
+                ]
+            },
+            "setBackgroundColor": {
+                "native": "color",
+                "params": [
+                    ["bg", "Color"]
+                ]
+            },
+            "setBackgroundSelectionColor": {
+                "native": "color",
+                "params": [
+                    ["bg", "Color"],
+                    ["sel", "Color"]
+                ]
+            },
+            "setCallback": {
+                "native": "callback",
+                "params": [
+                    ["cb", "Callback"]
+                ]
+            },
+            "setChanged": {
+                "native": "set_changed"
+            },
+            "setDamage": {
+                "native": "damage",
+                "params": [
+                    ["c", "Number"]
+                ]
+            },
+            "setDamageArea": {
+                "native": "damage",
+                "params": [
+                    ["c", "Number"],
+                    ["x", "Number"],
+                    ["y", "Number"],
+                    ["w", "Number"],
+                    ["h", "Number"]
+                ]
+            },
+            "setDeimage": {
+                "native": "deimage",
+                "params": [
+                    ["img", "Image"]
+                ]
+            },
+            "setImage": {
+                "native": "image",
+                "params": [
+                    ["img", "Image"]
+                ]
+            },
+            "setLabel": {
+                "native": "copy_label",
+                "params": [
+                    ["new_label", "String"]
+                ]
+            },
+            "setLabelColor": {
+                "native": "labelcolor",
+                "params": [
+                    ["c", "Color"]
+                ]
+            },
+            "setLabelFont": {
+                "native": "labelfont",
+                "params": [
+                    ["f", "Font"]
+                ]
+            },
+            "setLabelSize": {
+                "native": "labelsize",
+                "params": [
+                    ["pix", "Fontsize"]
+                ]
+            },
+            "setLabelType": {
+                "native": "labeltype",
+                "params": [
+                    ["a", "Labeltype"]
+                ]
+            },
+            "setLabelTypeAndLabel": {
+                "native": "label",
+                "params": [
+                    ["a", "Labeltype"],
+                    ["b", "String"]
+                ]
+            },
+            "setOutput": {
+                "native": "set_output"
+            },
+            "setPosition": {
+                "native": "position",
+                "params": [
+                    ["x", "Number"],
+                    ["y", "Number"]
+                ]
+            },
+            "setSelectionColor": {
+                "native": "selection_color",
+                "params": [
+                    ["a", "Color"]
+                ]
+            },
+            "setSize": {
+                "native": "size",
+                "params": [
+                    ["w", "Number"],
+                    ["h", "Number"]
+                ]
+            },
+            "setTooltip": {
+                "native": "copy_tooltip",
+                "params": [
+                    ["text", "String"]
+                ]
+            },
+            "setVisible": {
+                "native": "set_visible"
+            },
+            "setVisibleFocus": {
+                "native": "set_visible_focus"
+            },
+            "setWhenFlags": {
+                "native": "when",
+                "params": [
+                    ["i", "Number"]
+                ]
+            },
+            "show": {},
+            "takeFocus": {
+                "native": "take_focus",
+                "return": "Boolean"
+            },
+            "takesEvents": {
+                "native": "takesevents",
+                "return": "Boolean"
+            },
+            "w": {
+                "return": "Number"
+            },
+            "x": {
+                "return": "Number"
+            },
+            "y": {
+                "return": "Number"
+            }
+        }
+    },
+
+    "Window": {
+        "native": "Fl_Window",
+        "super": "Group",
+        "methods": {
+            "setNonModal": {
+                "native": "set_non_modal"
+            },
+            "showTopLevel": {
+                "native_call": "self->show(0, NULL)"
+            },
+            "TODO": {}
+        }
+    },
+
+    "Wizard": {
+        "native": "Fl_Wizard",
+        "super": "Group",
+        "constructor": [
+            ["x", "Number"],
+            ["y", "Number"],
+            ["w", "Number"],
+            ["h", "Number"],
+            ["label", "String"]
+        ],
+        "methods": {
+            "getValue": {
+                "native": "value",
+                "return": "Widget"
+            },
+            "next": {},
+            "prev": {},
+            "setValue": {
+                "native": "value",
+                "params": [
+                    ["w", "Widget"]
+                ]
+            }
+        }
+    },
+
+    "XbmImage": {
+        "native": "Fl_XBM_Image",
+        "super": "Bitmap",
+        "TODO": {}
+    },
+
+    "XpmImage": {
+        "native": "Fl_XPM_Image",
+        "super": "Pixmap",
+        "TODO": {}
+    }
+
+}

@@ -1,0 +1,294 @@
+IMPORT fltk
+IMPORT string
+IMPORT sys
+
+VAR main: fltk.Window
+VAR replaceDialog: fltk.Window
+VAR replaceFind: fltk.Input
+VAR replaceWith: fltk.Input
+VAR replaceAll: fltk.Button
+VAR replaceNext: fltk.ReturnButton
+VAR replaceCancel: fltk.Button
+VAR editor: fltk.TextEditor
+VAR search: String
+
+VAR loading: Boolean
+VAR changed: Boolean
+VAR filename: String
+VAR textBuffer: fltk.TextBuffer
+
+CONSTANT TextSize: Number := 14
+
+LET MenuItems: Array<fltk.MenuItem> := [
+    fltk.MenuItem(text WITH "&File",                                                                                            flags WITH fltk.MenuSubmenu),
+    fltk.MenuItem(text WITH "&New File",                                                        callback WITH newCallback),
+    fltk.MenuItem(text WITH "&Open File...",    shortcut WITH fltk.ShortcutCommand + ord("o"),  callback WITH openCallback),
+    fltk.MenuItem(text WITH "&Insert File...",  shortcut WITH fltk.ShortcutCommand + ord("i"),  callback WITH insertCallback,   flags WITH fltk.MenuDivider),
+    fltk.MenuItem(text WITH "&Save File",       shortcut WITH fltk.ShortcutCommand + ord("s"),  callback WITH saveCallback),
+    fltk.MenuItem(text WITH "Save File &As...", shortcut WITH fltk.ShortcutCommand + fltk.ShortcutShift + ord("s"), callback WITH saveasCallback, flags WITH fltk.MenuDivider),
+    %fltk.MenuItem(text WITH "New &View",        shortcut WITH fltk.ShortcutAlt + ord("v"),      callback WITH viewCallback),
+    %fltk.MenuItem(text WITH "&Close View",      shortcut WITH fltk.ShortcutCommand + ord("w"),  callback WITH closeCallback,    flags WITH fltk.MenuDivider),
+    fltk.MenuItem(text WITH "E&xit",            shortcut WITH fltk.ShortcutCommand + ord("q"),  callback WITH quitCallback),
+    fltk.MenuItem(text WITH ""),
+    fltk.MenuItem(text WITH "&Edit",                                                                                            flags WITH fltk.MenuSubmenu),
+    fltk.MenuItem(text WITH "&Undo",            shortcut WITH fltk.ShortcutCommand + ord("z"),  callback WITH undoCallback,     flags WITH fltk.MenuDivider),
+    fltk.MenuItem(text WITH "Cu&t",             shortcut WITH fltk.ShortcutCommand + ord("x"),  callback WITH cutCallback),
+    fltk.MenuItem(text WITH "&Copy",            shortcut WITH fltk.ShortcutCommand + ord("c"),  callback WITH copyCallback),
+    fltk.MenuItem(text WITH "&Paste",           shortcut WITH fltk.ShortcutCommand + ord("v"),  callback WITH pasteCallback),
+    fltk.MenuItem(text WITH "&Delete",                                                          callback WITH deleteCallback),
+    fltk.MenuItem(text WITH ""),
+    fltk.MenuItem(text WITH "&Search",                                                                                          flags WITH fltk.MenuSubmenu),
+    fltk.MenuItem(text WITH "&Find...",         shortcut WITH fltk.ShortcutCommand + ord("f"),  callback WITH findCallback),
+    fltk.MenuItem(text WITH "F&ind Again",      shortcut WITH fltk.ShortcutCommand + ord("g"),  callback WITH find2Callback),
+    fltk.MenuItem(text WITH "&Replace...",      shortcut WITH fltk.ShortcutCommand + ord("r"),  callback WITH replaceCallback),
+    %fltk.MenuItem(text WITH "Re&place Again",   shortcut WITH fltk.ShortcutCommand + ord("t"),  callback WITH replace2Callback),
+    fltk.MenuItem(text WITH ""),
+]
+
+FUNCTION checkSave(): Boolean
+    IF NOT changed THEN
+        RETURN TRUE
+    END IF
+    LET r: Number := fltk.choice("The current file has not been saved.\n" &
+                                 "Would you like to save it now?",
+                                 "Cancel", "Save", "Discard")
+    IF r = 1 THEN
+        saveCallback(NIL)
+        RETURN NOT changed
+    END IF
+    RETURN r = 2
+END FUNCTION
+
+FUNCTION loadFile(newfile: String, ipos: Number)
+    loading := TRUE
+    LET insert: Boolean := ipos <> -1
+    changed := insert
+    IF NOT insert THEN
+        filename := ""
+    END IF
+    VAR r: Number
+    IF NOT insert THEN
+        r := textBuffer.loadFile(newfile)
+    ELSE
+        r := textBuffer.insertFile(newfile, ipos)
+    END IF
+    IF r <> 0 THEN
+        fltk.alert("Error reading from file '\(newfile)'")
+    ELSE
+        IF NOT insert THEN
+            filename := newfile
+        END IF
+    END IF
+    loading := FALSE
+    textBuffer.callModifyCallbacks()
+END FUNCTION
+
+FUNCTION saveFile(newfile: String)
+    IF textBuffer.saveFile(filename) <> 0 THEN
+        fltk.alert("Error writing to file '\(newfile)'")
+    ELSE
+        filename := newfile
+    END IF
+    changed := FALSE
+    textBuffer.callModifyCallbacks()
+END FUNCTION
+
+FUNCTION setTitle()
+    VAR title: String
+    IF filename = "" THEN
+        title := "Untitled"
+    ELSE
+        title := string.split(filename, "/")[LAST]
+    END IF
+    IF changed THEN
+        title.append(" (modified)")
+    END IF
+    main.setLabel(title)
+END FUNCTION
+
+FUNCTION changedCallback(pos: Number, inserted: Number, deleted: Number, restyled: Number, deletedText: String)
+    IF (inserted > 0 OR deleted > 0) AND NOT loading THEN
+        changed := TRUE
+    END IF
+    setTitle()
+    IF loading THEN
+        editor.showInsertPosition()
+    END IF
+END FUNCTION
+
+FUNCTION newCallback(self: fltk.Widget)
+    IF NOT checkSave() THEN
+        EXIT FUNCTION
+    END IF
+    filename := ""
+    textBuffer.select(0, textBuffer.length())
+    textBuffer.removeSelection()
+    changed := FALSE
+    textBuffer.callModifyCallbacks()
+END FUNCTION
+
+FUNCTION openCallback(self: fltk.Widget)
+    IF NOT checkSave() THEN
+        EXIT FUNCTION
+    END IF
+    LET newfile: String := fltk.fileChooser("Open File?", "*", filename)
+    IF newfile <> "" THEN
+        loadFile(newfile, -1)
+    END IF
+END FUNCTION
+
+FUNCTION insertCallback(self: fltk.Widget)
+END FUNCTION
+
+FUNCTION saveCallback(self: fltk.Widget)
+    IF filename = "" THEN
+        saveasCallback(self)
+        EXIT FUNCTION
+    END IF
+    saveFile(filename)
+END FUNCTION
+
+FUNCTION saveasCallback(self: fltk.Widget)
+    LET newfile: String := fltk.fileChooser("Save File As?", "*", filename)
+    IF newfile <> "" THEN
+        saveFile(newfile)
+    END IF
+END FUNCTION
+
+FUNCTION viewCallback(self: fltk.Widget)
+END FUNCTION
+
+FUNCTION closeCallback(self: fltk.Widget)
+END FUNCTION
+
+FUNCTION closeWindowCallback(self: fltk.Window)
+END FUNCTION
+
+FUNCTION quitCallback(self: fltk.Widget)
+    IF NOT checkSave() THEN
+        EXIT FUNCTION
+    END IF
+    sys.exit(0)
+END FUNCTION
+
+FUNCTION undoCallback(self: fltk.Widget)
+END FUNCTION
+
+FUNCTION cutCallback(self: fltk.Widget)
+    editor.cut()
+END FUNCTION
+
+FUNCTION copyCallback(self: fltk.Widget)
+    editor.copy()
+END FUNCTION
+
+FUNCTION pasteCallback(self: fltk.Widget)
+    editor.paste()
+END FUNCTION
+
+FUNCTION deleteCallback(self: fltk.Widget)
+    textBuffer.removeSelection()
+END FUNCTION
+
+FUNCTION findCallback(self: fltk.Widget)
+    LET val: String := fltk.getInput("Search String:", search)
+    IF val <> "" THEN
+        search := val
+        find2Callback(self)
+    END IF
+END FUNCTION
+
+FUNCTION find2Callback(self: fltk.Widget)
+    IF search = "" THEN
+        findCallback(self)
+        EXIT FUNCTION
+    END IF
+    VAR pos: Number := editor.getInsertPosition()
+    LET found: Boolean := textBuffer.searchForward(pos, search, OUT pos)
+    IF found THEN
+        textBuffer.select(pos, pos + search.length())
+        editor.setInsertPosition(pos + search.length())
+        editor.showInsertPosition()
+    ELSE
+        fltk.alert("No occurrences of '\(search)' found!")
+    END IF
+END FUNCTION
+
+FUNCTION replaceCallback(self: fltk.Widget)
+    replaceDialog.show()
+END FUNCTION
+
+FUNCTION replaceAllCallback(self: fltk.Button)
+END FUNCTION
+
+FUNCTION replace2Callback(self: fltk.ReturnButton)
+    LET find: String := replaceFind.getValue()
+    LET replace: String := replaceWith.getValue()
+    IF find = "" THEN
+        replaceDialog.show()
+        EXIT FUNCTION
+    END IF
+    replaceDialog.hide()
+    VAR pos: Number := editor.getInsertPosition()
+    LET found: Boolean := textBuffer.searchForward(pos, find, OUT pos)
+    IF found THEN
+        textBuffer.select(pos, pos + find.length())
+        textBuffer.removeSelection()
+        textBuffer.insert(pos, replace)
+        textBuffer.select(pos, pos + replace.length())
+        editor.setInsertPosition(pos + replace.length())
+        editor.showInsertPosition()
+    ELSE
+        fltk.alert("No occurrences of '\(find)' found!")
+    END IF
+END FUNCTION
+
+FUNCTION replaceCancelCallback(self: fltk.Button)
+    replaceDialog.hide()
+END FUNCTION
+
+BEGIN MAIN
+    textBuffer := fltk.makeTextBuffer()
+    main := fltk.makeWindow(660, 500)
+
+    main.begin()
+    LET m: fltk.MenuBar := fltk.makeMenuBar(0, 0, 660, 30, "")
+    m.copy(MenuItems)
+    editor := fltk.makeTextEditor(0, 30, 660, 370, "")
+    editor.setTextFont(fltk.FontCourier)
+    editor.setTextSize(TextSize)
+    editor.setBuffer(textBuffer)
+%    main->editor->highlight_data(stylebuf, styletable,
+%                              sizeof(styletable) / sizeof(styletable[0]),
+%			      'A', style_unfinished_cb, 0);
+
+    main.end()
+%    main.resizable(main->editor)
+%    main.size_range(300, 200)
+%    main.setCallback(closeWindowCallback)
+
+%    textbuf.add_modify_callback(style_update, main->editor)
+    textBuffer.addModifyCallback(changedCallback)
+    textBuffer.callModifyCallbacks()
+
+    replaceDialog := fltk.makeWindow(300, 105) %, "Replace")
+    replaceFind := fltk.makeInput(80, 10, 210, 25, "Find:")
+    replaceFind.setAlign(fltk.AlignLeft)
+
+    replaceWith := fltk.makeInput(80, 40, 210, 25, "Replace:")
+    replaceWith.setAlign(fltk.AlignLeft)
+
+    replaceAll := fltk.makeButton(10, 70, 90, 25, "Replace All")
+    replaceAll.setCallback(replaceAllCallback)
+
+    replaceNext := fltk.makeReturnButton(105, 70, 120, 25, "Replace Next")
+    replaceNext.setCallback(replace2Callback)
+
+    replaceCancel := fltk.makeButton(230, 70, 60, 25, "Cancel")
+    replaceCancel.setCallback(replaceCancelCallback)
+    replaceDialog.end()
+    replaceDialog.setNonModal()
+
+    main.showTopLevel()
+    fltk.run()
+END MAIN

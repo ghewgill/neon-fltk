@@ -1,0 +1,247 @@
+EXPORT TYPE Adjuster IS POINTER
+EXPORT TYPE Bitmap IS POINTER
+EXPORT TYPE BmpImage IS POINTER
+EXPORT TYPE Box IS POINTER
+EXPORT TYPE Browser IS POINTER
+EXPORT TYPE BrowserBase IS POINTER
+EXPORT TYPE Button IS POINTER
+EXPORT TYPE Chart IS POINTER
+EXPORT TYPE CheckBrowser IS POINTER
+EXPORT TYPE CheckButton IS POINTER
+EXPORT TYPE Choice IS POINTER
+EXPORT TYPE Clock IS POINTER
+EXPORT TYPE ClockOutput IS POINTER
+EXPORT TYPE ColorChooser IS POINTER
+EXPORT TYPE CopySurface IS POINTER
+EXPORT TYPE Counter IS POINTER
+EXPORT TYPE Device IS POINTER
+EXPORT TYPE Dial IS POINTER
+EXPORT TYPE DisplayDevice IS POINTER
+EXPORT TYPE DoubleWindow IS POINTER
+EXPORT TYPE FileBrowser IS POINTER
+EXPORT TYPE FileChooser IS POINTER
+EXPORT TYPE FileIcon IS POINTER
+EXPORT TYPE FileInput IS POINTER
+EXPORT TYPE FillDial IS POINTER
+EXPORT TYPE FillSlider IS POINTER
+EXPORT TYPE FloatInput IS POINTER
+EXPORT TYPE FLTKFileChooser IS POINTER
+EXPORT TYPE GifImage IS POINTER
+EXPORT TYPE GlWindow IS POINTER
+EXPORT TYPE GlutWindow IS POINTER
+EXPORT TYPE GraphicsDriver IS POINTER
+EXPORT TYPE Group IS POINTER
+EXPORT TYPE HelpDialog IS POINTER
+EXPORT TYPE HelpView IS POINTER
+EXPORT TYPE HoldBrowser IS POINTER
+EXPORT TYPE HorizontalFillSlider IS POINTER
+EXPORT TYPE HorizontalNiceSlider IS POINTER
+EXPORT TYPE HorizontalSlider IS POINTER
+EXPORT TYPE HorizontalValueSlider IS POINTER
+EXPORT TYPE Image IS POINTER
+EXPORT TYPE ImageSurface IS POINTER
+EXPORT TYPE Input IS POINTER
+EXPORT TYPE InputChoice IS POINTER
+EXPORT TYPE IntInput IS POINTER
+EXPORT TYPE JpegImage IS POINTER
+EXPORT TYPE LightButton IS POINTER
+EXPORT TYPE LineDial IS POINTER
+EXPORT TYPE MenuBase IS POINTER
+EXPORT TYPE MenuBar IS POINTER
+EXPORT TYPE MenuButton IS POINTER
+EXPORT TYPE MenuWindow IS POINTER
+EXPORT TYPE MultiBrowser IS POINTER
+EXPORT TYPE MultilineInput IS POINTER
+EXPORT TYPE MultilineOutput IS POINTER
+EXPORT TYPE NativeFileChooser IS POINTER
+EXPORT TYPE NiceSlider IS POINTER
+EXPORT TYPE Output IS POINTER
+EXPORT TYPE OverlayWindow IS POINTER
+EXPORT TYPE Pack IS POINTER
+EXPORT TYPE PagedDevice IS POINTER
+EXPORT TYPE Pixmap IS POINTER
+EXPORT TYPE PngImage IS POINTER
+EXPORT TYPE PnmImage IS POINTER
+EXPORT TYPE Positioner IS POINTER
+EXPORT TYPE PostScriptFileDevice IS POINTER
+EXPORT TYPE PostScriptGraphicsDriver IS POINTER
+EXPORT TYPE PostScriptPrinter IS POINTER
+EXPORT TYPE Preferences IS POINTER
+EXPORT TYPE Printer IS POINTER
+EXPORT TYPE Progress IS POINTER
+EXPORT TYPE QuartzGraphicsDriver IS POINTER
+EXPORT TYPE RadioButton IS POINTER
+EXPORT TYPE RadioLightButton IS POINTER
+EXPORT TYPE RadioRoundButton IS POINTER
+EXPORT TYPE RepeatButton IS POINTER
+EXPORT TYPE ReturnButton IS POINTER
+EXPORT TYPE RgbImage IS POINTER
+EXPORT TYPE Roller IS POINTER
+EXPORT TYPE RoundButton IS POINTER
+EXPORT TYPE RoundClock IS POINTER
+EXPORT TYPE Scroll IS POINTER
+EXPORT TYPE Scrollbar IS POINTER
+EXPORT TYPE SecretInput IS POINTER
+EXPORT TYPE SelectBrowser IS POINTER
+EXPORT TYPE SharedImage IS POINTER
+EXPORT TYPE SimpleCounter IS POINTER
+EXPORT TYPE SingleWindow IS POINTER
+EXPORT TYPE Slider IS POINTER
+EXPORT TYPE Spinner IS POINTER
+EXPORT TYPE SurfaceDevice IS POINTER
+EXPORT TYPE SystemMenuBar IS POINTER
+EXPORT TYPE SystemPrinter IS POINTER
+EXPORT TYPE Table IS POINTER
+EXPORT TYPE TableRow IS POINTER
+EXPORT TYPE Tabs IS POINTER
+EXPORT TYPE TextBuffer IS POINTER
+EXPORT TYPE TextDisplay IS POINTER
+EXPORT TYPE TextEditor IS POINTER
+EXPORT TYPE Tile IS POINTER
+EXPORT TYPE TiledImage IS POINTER
+EXPORT TYPE Timer IS POINTER
+EXPORT TYPE ToggleButton IS POINTER
+EXPORT TYPE Tooltip IS POINTER
+EXPORT TYPE Tree IS POINTER
+EXPORT TYPE Valuator IS POINTER
+EXPORT TYPE ValueInput IS POINTER
+EXPORT TYPE ValueOutput IS POINTER
+EXPORT TYPE ValueSlider IS POINTER
+EXPORT TYPE Widget IS POINTER
+EXPORT TYPE Window IS POINTER
+EXPORT TYPE Wizard IS POINTER
+EXPORT TYPE XbmImage IS POINTER
+EXPORT TYPE XpmImage IS POINTER
+
+EXPORT TYPE WidgetCallback IS FUNCTION(self: Widget) % TODO: This doesn't work if it's just called Callback
+EXPORT TYPE AdjusterCallback IS FUNCTION(self: Adjuster)
+EXPORT TYPE BoxCallback IS FUNCTION(self: Box)
+EXPORT TYPE BrowserCallback IS FUNCTION(self: Browser)
+EXPORT TYPE BrowserBaseCallback IS FUNCTION(self: BrowserBase)
+EXPORT TYPE ButtonCallback IS FUNCTION(self: Button)
+EXPORT TYPE ChartCallback IS FUNCTION(self: Chart)
+EXPORT TYPE CheckBrowserCallback IS FUNCTION(self: CheckBrowser)
+EXPORT TYPE CheckButtonCallback IS FUNCTION(self: CheckButton)
+EXPORT TYPE ChoiceCallback IS FUNCTION(self: Choice)
+EXPORT TYPE ClockCallback IS FUNCTION(self: Clock)
+EXPORT TYPE ClockOutputCallback IS FUNCTION(self: ClockOutput)
+EXPORT TYPE ColorChooserCallback IS FUNCTION(self: ColorChooser)
+EXPORT TYPE CounterCallback IS FUNCTION(self: Counter)
+EXPORT TYPE DialCallback IS FUNCTION(self: Dial)
+EXPORT TYPE DoubleWindowCallback IS FUNCTION(self: DoubleWindow)
+EXPORT TYPE FileBrowserCallback IS FUNCTION(self: FileBrowser)
+EXPORT TYPE FileInputCallback IS FUNCTION(self: FileInput)
+EXPORT TYPE FillDialCallback IS FUNCTION(self: FillDial)
+EXPORT TYPE FillSliderCallback IS FUNCTION(self: FillSlider)
+EXPORT TYPE FloatInputCallback IS FUNCTION(self: FloatInput)
+EXPORT TYPE GlWindowCallback IS FUNCTION(self: GlWindow)
+EXPORT TYPE GlutWindowCallback IS FUNCTION(self: GlutWindow)
+EXPORT TYPE GroupCallback IS FUNCTION(self: Group)
+EXPORT TYPE HelpViewCallback IS FUNCTION(self: HelpView)
+EXPORT TYPE HoldBrowserCallback IS FUNCTION(self: HoldBrowser)
+EXPORT TYPE HorizontalFillSliderCallback IS FUNCTION(self: HorizontalFillSlider)
+EXPORT TYPE HorizontalNiceSliderCallback IS FUNCTION(self: HorizontalNiceSlider)
+EXPORT TYPE HorizontalSliderCallback IS FUNCTION(self: HorizontalSlider)
+EXPORT TYPE HorizontalValueSliderCallback IS FUNCTION(self: HorizontalValueSlider)
+EXPORT TYPE InputCallback IS FUNCTION(self: Input)
+EXPORT TYPE InputChoiceCallback IS FUNCTION(self: InputChoice)
+EXPORT TYPE IntInputCallback IS FUNCTION(self: IntInput)
+EXPORT TYPE LightButtonCallback IS FUNCTION(self: LightButton)
+EXPORT TYPE LineDialCallback IS FUNCTION(self: LineDial)
+EXPORT TYPE MenuBarCallback IS FUNCTION(self: MenuBar)
+EXPORT TYPE MenuBaseCallback IS FUNCTION(self: MenuBase)
+EXPORT TYPE MenuButtonCallback IS FUNCTION(self: MenuButton)
+EXPORT TYPE MenuWindowCallback IS FUNCTION(self: MenuWindow)
+EXPORT TYPE MultiBrowserCallback IS FUNCTION(self: MultiBrowser)
+EXPORT TYPE MultilineInputCallback IS FUNCTION(self: MultilineInput)
+EXPORT TYPE MultilineOutputCallback IS FUNCTION(self: MultilineOutput)
+EXPORT TYPE NiceSliderCallback IS FUNCTION(self: NiceSlider)
+EXPORT TYPE OutputCallback IS FUNCTION(self: Output)
+EXPORT TYPE OverlayWindowCallback IS FUNCTION(self: OverlayWindow)
+EXPORT TYPE PackCallback IS FUNCTION(self: Pack)
+EXPORT TYPE PositionerCallback IS FUNCTION(self: Positioner)
+EXPORT TYPE ProgressCallback IS FUNCTION(self: Progress)
+EXPORT TYPE RadioButtonCallback IS FUNCTION(self: RadioButton)
+EXPORT TYPE RadioLightButtonCallback IS FUNCTION(self: RadioLightButton)
+EXPORT TYPE RadioRoundButtonCallback IS FUNCTION(self: RadioRoundButton)
+EXPORT TYPE RepeatButtonCallback IS FUNCTION(self: RepeatButton)
+EXPORT TYPE ReturnButtonCallback IS FUNCTION(self: ReturnButton)
+EXPORT TYPE RollerCallback IS FUNCTION(self: Roller)
+EXPORT TYPE RoundButtonCallback IS FUNCTION(self: RoundButton)
+EXPORT TYPE RoundClockCallback IS FUNCTION(self: RoundClock)
+EXPORT TYPE ScrollCallback IS FUNCTION(self: Scroll)
+EXPORT TYPE ScrollbarCallback IS FUNCTION(self: Scrollbar)
+EXPORT TYPE SecretInputCallback IS FUNCTION(self: SecretInput)
+EXPORT TYPE SelectBrowserCallback IS FUNCTION(self: SelectBrowser)
+EXPORT TYPE SimpleCounterCallback IS FUNCTION(self: SimpleCounter)
+EXPORT TYPE SingleWindowCallback IS FUNCTION(self: SingleWindow)
+EXPORT TYPE SliderCallback IS FUNCTION(self: Slider)
+EXPORT TYPE SpinnerCallback IS FUNCTION(self: Spinner)
+EXPORT TYPE SystemMenuBarCallback IS FUNCTION(self: SystemMenuBar)
+EXPORT TYPE TableCallback IS FUNCTION(self: Table)
+EXPORT TYPE TableRowCallback IS FUNCTION(self: TableRow)
+EXPORT TYPE TabsCallback IS FUNCTION(self: Tabs)
+EXPORT TYPE TextBufferModifyCallback IS FUNCTION(pos: Number, inserted: Number, deleted: Number, restyled: Number, deletedText: String)
+EXPORT TYPE TextDisplayCallback IS FUNCTION(self: TextDisplay)
+EXPORT TYPE TextEditorCallback IS FUNCTION(self: TextEditor)
+EXPORT TYPE TileCallback IS FUNCTION(self: Tile)
+EXPORT TYPE TimerCallback IS FUNCTION(self: Timer)
+EXPORT TYPE ToggleButtonCallback IS FUNCTION(self: ToggleButton)
+EXPORT TYPE TreeCallback IS FUNCTION(self: Tree)
+EXPORT TYPE ValuatorCallback IS FUNCTION(self: Valuator)
+EXPORT TYPE ValueInputCallback IS FUNCTION(self: ValueInput)
+EXPORT TYPE ValueOutputCallback IS FUNCTION(self: ValueOutput)
+EXPORT TYPE ValueSliderCallback IS FUNCTION(self: ValueSlider)
+EXPORT TYPE WindowCallback IS FUNCTION(self: Window)
+EXPORT TYPE WizardCallback IS FUNCTION(self: Wizard)
+
+EXPORT TYPE Align IS Number
+EXPORT TYPE Boxtype IS Number
+EXPORT TYPE Color IS Number
+EXPORT TYPE Font IS Number
+EXPORT TYPE Fontsize IS Number
+EXPORT TYPE Labeltype IS Number
+EXPORT TYPE When IS Number
+
+EXPORT DECLARE EXTENSION CONSTANT ShortcutAlt: Number
+EXPORT DECLARE EXTENSION CONSTANT ShortcutCommand: Number
+EXPORT DECLARE EXTENSION CONSTANT ShortcutShift: Number
+
+EXPORT DECLARE EXTENSION CONSTANT MenuDivider: Number
+EXPORT DECLARE EXTENSION CONSTANT MenuSubmenu: Number
+
+EXPORT DECLARE EXTENSION CONSTANT FontCourier: Number
+
+EXPORT DECLARE EXTENSION CONSTANT AlignLeft: Number
+
+EXPORT TYPE MenuItem IS RECORD
+    text: String
+    shortcut: Number
+    callback: WidgetCallback
+    flags: Number
+END RECORD
+
+EXPORT DECLARE EXTENSION FUNCTION alert(message: String)
+EXPORT DECLARE EXTENSION FUNCTION choice(prompt: String, b0, b1, b2: String): Number
+EXPORT DECLARE EXTENSION FUNCTION fileChooser(message: String, pattern: String, defname: String): String
+EXPORT DECLARE EXTENSION FUNCTION getInput(prompt: String, default: String): String
+EXPORT DECLARE EXTENSION FUNCTION makeWindow(w, h: Number): Window
+EXPORT DECLARE EXTENSION FUNCTION run()
+
+DECLARE EXTENSION FUNCTION MenuBar_copy(m: MenuBar, items: Array<MenuItem>)
+DECLARE EXTENSION FUNCTION TextBuffer_addModifyCallback(b: TextBuffer, cb: TextBufferModifyCallback)
+DECLARE EXTENSION FUNCTION TextBuffer_searchForward(b: TextBuffer, startPos: Number, searchString: String, OUT foundPos: Number): Boolean
+
+FUNCTION MenuBar.copy(self: MenuBar, items: Array<MenuItem>)
+    MenuBar_copy(self, items)
+END FUNCTION
+
+FUNCTION TextBuffer.addModifyCallback(b: TextBuffer, cb: TextBufferModifyCallback)
+    TextBuffer_addModifyCallback(b, cb)
+END FUNCTION
+
+FUNCTION TextBuffer.searchForward(self: TextBuffer, startPos: Number, searchString: String, OUT foundPos: Number): Boolean
+    RETURN TextBuffer_searchForward(self, startPos, searchString, OUT foundPos)
+END FUNCTION
+
+% Generated fltk.neon.inc is appended here to make fltk.neon
