@@ -160,7 +160,7 @@ else:
     libfltk = fltkenv.Command("fltk-1.3.4-1/lib/libfltk.a", "fltk-1.3.4-1/configure", "cd lib/fltk/fltk-1.3.4-1 && env CFLAGS=-fPIC CXXFLAGS=-fPIC ./configure && make")
     env.Append(CPPPATH=["fltk-1.3.4-1"])
 
-env.Append(CPPPATH=["../../src"])
+env.Append(CPPPATH=["../../common"])
 env.Append(LIBS=[libfltk])
 if sys.platform == "win32":
     env.Append(LIBS=["advapi32", "comdlg32", "gdi32", "ole32", "shell32", "user32"])
