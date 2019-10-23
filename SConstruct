@@ -19,7 +19,7 @@ if sys.platform == "win32":
     ])
 
 if GetOption("clean"):
-    shutil.rmtree("fltk-1.3.4-1")
+    shutil.rmtree("fltk-1.3.4-1", ignore_errors=True)
 elif not os.path.exists("fltk-1.3.4-1/configure"):
     tarfile.open("fltk-1.3.4-1-source.tar.gz").extractall(".")
     if sys.platform == "win32":
