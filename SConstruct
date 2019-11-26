@@ -27,7 +27,7 @@ elif not os.path.exists("fltk-1.3.4-1/configure"):
 
 env.Command(["fltk.neon.inc", "fltk.cpp.inc"], ["mkapi.py", "fltk.json"], sys.executable + " $SOURCES " + Dir(".").abspath)
 
-env.Command("fltk.neon", ["fltk.neon.in", "fltk.neon.inc"], lambda source, target, env: open(target[0].abspath, "w").write(open(source[0].abspath).read() + open(source[1].abspath).read()))
+env.Command("fltk.neon", ["fltk.neon.in", "fltk.neon.inc"], lambda source, target, env: 0 * open(target[0].abspath, "w").write(open(source[0].abspath).read() + open(source[1].abspath).read()))
 
 if sys.platform == "win32":
     fltkenv.Append(CPPPATH=["fltk-1.3.4-1"])
