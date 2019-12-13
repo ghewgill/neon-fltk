@@ -113,7 +113,7 @@ EXPORT TYPE Wizard IS POINTER
 EXPORT TYPE XbmImage IS POINTER
 EXPORT TYPE XpmImage IS POINTER
 
-EXPORT TYPE WidgetCallback IS FUNCTION(self: Widget) % TODO: This doesn't work if it's just called Callback
+EXPORT TYPE WidgetCallback IS FUNCTION(self: Widget) # TODO: This doesn't work if it's just called Callback
 EXPORT TYPE AdjusterCallback IS FUNCTION(self: Adjuster)
 EXPORT TYPE BoxCallback IS FUNCTION(self: Box)
 EXPORT TYPE BrowserCallback IS FUNCTION(self: Browser)
@@ -244,4 +244,4 @@ FUNCTION TextBuffer.searchForward(self: TextBuffer, startPos: Number, searchStri
     RETURN TextBuffer_searchForward(self, startPos, searchString, OUT foundPos)
 END FUNCTION
 
-% Generated fltk.neon.inc is appended here to make fltk.neon
+# Generated fltk.neon.inc is appended here to make fltk.neon
