@@ -1,0 +1,16 @@
+image:
+    - Visual Studio 2019
+    - Visual Studio 2017
+    - Visual Studio 2015
+    #- Visual Studio 2013
+install:
+- ps: >-
+    if (-not (Test-Path C:\Python38\Lib\site-packages\scons-3.1.2)){
+      Start-FileDownload "https://downloads.sourceforge.net/project/scons/scons/3.1.2/scons-3.1.2.zip" -FileName "scons-3.1.2.zip"
+      7z x -y scons-3.1.2.zip
+    }
+build_script:
+- cmd: set PATH=c:\python38;%PATH%
+- cmd: copy c:\python38\python.exe c:\python38\python3.exe
+- cmd: python3 scons-3.1.2\setup.py install
+- cmd: scons

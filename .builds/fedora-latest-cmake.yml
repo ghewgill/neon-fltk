@@ -1,0 +1,11 @@
+image: fedora/latest
+packages:
+- g++
+- scons
+- libX11-devel
+sources:
+- https://github.com/ghewgill/neon-fltk
+tasks:
+- build: |
+    cd neon-fltk
+    scons

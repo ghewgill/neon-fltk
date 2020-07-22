@@ -1,0 +1,22 @@
+sudo: false
+language: cpp
+osx_image: xcode11 # at least until travis default osx version works
+jobs:
+    include:
+        - os: linux
+          compiler: gcc
+        - os: linux
+          compiler: clang
+        - os: linux
+          compiler: clang
+          arch: arm64
+        - os: osx
+          compiler: clang
+before_install:
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then which scons || brew install scons; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt update; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt install python3-pip; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo pip3 install scons; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo sed -i -e '1s/python$/python3/' $(which scons); fi
+script:
+  - scons

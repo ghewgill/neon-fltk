@@ -1,0 +1,10 @@
+image: archlinux
+packages:
+- scons
+- libx11
+sources:
+- https://github.com/ghewgill/neon-fltk
+tasks:
+- build: |
+    cd neon-fltk
+    scons

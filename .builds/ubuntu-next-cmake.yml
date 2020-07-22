@@ -1,0 +1,10 @@
+image: ubuntu/next
+packages:
+- scons
+- libx11-dev
+sources:
+- https://github.com/ghewgill/neon-fltk
+tasks:
+- build: |
+    cd neon-fltk
+    scons
